@@ -8,21 +8,25 @@ def encode(s):
     origlen = len(s)
     crypted = ""
     digitmapping = dict(zip('1234567890!"#€%&/()=','!"#€%&/()=1234567890'))
-    if origlen < 1000:
-        padded = s.ljust(4800)
+    if origlen < 999:
+        padded = s.zfill(1000)
+        crypted2 = crypted.ljust(40000)
     else:
         padded = s
-    if len(s) > 1000:
+        crypted2 = crypted
+    if len(padded) > 1000:
         raise ValueError
     for c in padded:
         if c.isalpha():
             if c.islower():
                 c=c.upper()
             # Rot13 the character for maximum security
-            crypted+=codecs.encode(c,'rot13')
+            crypted2+=codecs.encode(c,'rot13')
         elif c in digitmapping:
-          crypted+=digitmapping[c]    
-    return crypted    
+          crypted2+=digitmapping[c]
+    strip = crypted2.strip()
+    final = strip.strip('=')    
+    return final    
 
 
 def decode(s):
