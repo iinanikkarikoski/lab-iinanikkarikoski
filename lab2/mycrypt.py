@@ -8,8 +8,8 @@ def encode(s):
     origlen = len(s)
     crypted = ""
     digitmapping = dict(zip('1234567890!"#€%&/()=','!"#€%&/()=1234567890'))
-    if origlen < 999:
-        padded = s.ljust(4700)
+    if origlen < 1000:
+        padded = s.ljust(1000)
     else:
         padded = s
     if len(s) > 1000:
