@@ -9,12 +9,12 @@ def encode(s):
     crypted = ""
     digitmapping = dict(zip('1234567890!"#€%&/()=','!"#€%&/()=1234567890'))
     if origlen < 999:
-        padded = s.zfill(1000)
-        crypted2 = crypted.ljust(50000)
+        padded = s.zfill(2400)
+        crypted2 = crypted.ljust(1000)
     else:
         padded = s
         crypted2 = crypted
-    if len(padded) > 1000:
+    if len(s) > 1000:
         raise ValueError
     for c in padded:
         if c.isalpha():
