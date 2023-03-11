@@ -9,7 +9,7 @@ def encode(s):
     crypted = ""
     digitmapping = dict(zip('1234567890!"#€%&/()=','!"#€%&/()=1234567890'))
     if origlen < 999:
-        padded = s.zfill(2500)
+        padded = s.zfill(3000)
         crypted2 = crypted.ljust(1000)
     else:
         padded = s
