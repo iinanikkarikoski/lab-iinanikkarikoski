@@ -1,7 +1,7 @@
 import codecs
 
 def encode(s):
-    if not isinstance(s,str) or s == []:
+    if not isinstance(s,str) or s == None:
         raise TypeError
     if s == '+' or s == 'åäö':
         raise ValueError
@@ -9,7 +9,7 @@ def encode(s):
     crypted = ""
     digitmapping = dict(zip('1234567890!"#€%&/()=','!"#€%&/()=1234567890'))
     if origlen < 1000:
-        padded = s.ljust(1000)
+        padded = s.ljust(4800)
     else:
         padded = s
     if len(s) > 1000:
